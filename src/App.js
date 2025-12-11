@@ -1,5 +1,12 @@
-import { useState, useEffect, useContext, Suspense, lazy } from "react";
-import { Route, Routes, Navigate, useNavigate } from "react-router-dom";
+import {
+  useState,
+  useEffect,
+  useContext,
+  Suspense,
+  lazy,
+  useCallback,
+} from "react";
+import { Route, Routes, Navigate } from "react-router-dom";
 import PrivateRoute from "./routes/PrivateRoute";
 import AdminRoute from "./routes/AdminRoute";
 import { currentUser } from "./api";
@@ -21,7 +28,7 @@ const Nav = lazy(() => import("./components/Nav/Nav"));
 const Signin = lazy(() => import("./components/Auth/Signin"));
 const Signup = lazy(() => import("./components/Auth/Signup"));
 const Menu = lazy(() => import("./components/Nav/Menu"));
-const Message = lazy(() => import("./components/Message"));
+// const Message = lazy(() => import("./components/Message"));
 const AddOrder = lazy(() => import("./components/Order/AddOrder"));
 const EditOrder = lazy(() => import("./components/Order/EditOrder"));
 
@@ -30,9 +37,8 @@ const Orders = lazy(() => import("./components/Order/Orders"));
 const AdminDashboard = lazy(() => import("./components/Admin/Dashboard"));
 const App = () => {
   const { user, setUser, setIsAuth, setIsAdmin } = useContext(UserContext);
-  let navigation = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
-  useEffect(() => {
+  const checkUser = useCallback(() => {
     if (token) {
       setIsLoading(true);
       currentUser(token)
@@ -47,7 +53,10 @@ const App = () => {
           setIsLoading(false);
         });
     }
-  }, [setUser]);
+  }, [setUser, setIsAdmin, setIsAuth]);
+  useEffect(() => {
+    checkUser();
+  }, [checkUser]);
 
   return (
     <Suspense fallback={<Loader />}>

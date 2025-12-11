@@ -1,13 +1,13 @@
 import { useState, useContext } from "react";
-import { UserContext } from "../context/UserContext";
+// import { UserContext } from "../context/UserContext";
 import { ModalContext } from "../context/ModalContext";
-import { sendMessage } from "../api";
+// import { sendMessage } from "../api";
 import { toast } from "react-toastify";
-import { token } from "../utils";
+// import { token } from "../utils";
 
 const Message = () => {
-  const { user, isAdmin, setIsLoading } = useContext(UserContext);
-  const { setShowModal, modalType, setModalType } = useContext(ModalContext);
+  // const { user, isAdmin, setIsLoading } = useContext(UserContext);
+  const { setShowModal, setModalType } = useContext(ModalContext);
   // console.log("modalType", modalType);
   const [messageText, setMessageText] = useState("");
   // const handleReceiverEmail = () => {

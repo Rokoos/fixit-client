@@ -8,11 +8,11 @@ const Dashboard = () => {
   const { isLoading, setIsLoading } = useContext(UserContext);
   const [arr, setArr] = useState([]);
   const [data, setData] = useState("users");
-  const [page, setPage] = useState(1);
+  // const [page, setPage] = useState(1);
   const fetchData = useCallback(() => {
     setIsLoading(true);
     if (data === "users") {
-      getUsers(page)
+      getUsers(1)
         .then((res) => {
           console.log("res.data", res.data);
           setArr(res.data);
@@ -34,7 +34,7 @@ const Dashboard = () => {
           setIsLoading(false);
         });
     }
-  }, [data]);
+  }, [data, setIsLoading]);
   useEffect(() => {
     fetchData();
   }, [fetchData]);

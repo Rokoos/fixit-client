@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { FiStar } from "react-icons/fi";
 import Modal from "../Modal";
