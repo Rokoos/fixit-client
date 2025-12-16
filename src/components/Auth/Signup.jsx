@@ -83,7 +83,7 @@ const Signup = () => {
           type="text"
           id="surname"
           className="block w-full rounded-md border-0 py-1.5 px-2 text-gray-700 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-beige sm:text-sm sm:leading-6"
-          placeholder="Jan"
+          placeholder="Kowalski"
         />
       </div>
       <div className="mt-4 mb-4   w-[16rem] md:w-[20rem]  ">
@@ -100,7 +100,7 @@ const Signup = () => {
           type="email"
           id="email"
           className="block w-full rounded-md border-0 py-1.5 px-2 text-gray-700 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-beige sm:text-sm sm:leading-6"
-          placeholder="Jan"
+          placeholder="kowalski@test.pl"
         />
       </div>
       <div className="mt-4 mb-4   w-[16rem] md:w-[20rem]  ">

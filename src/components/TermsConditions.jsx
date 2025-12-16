@@ -6,100 +6,96 @@ const TermsConditions = () => {
   return (
     <div className="flex flex-col p-2 items-center h-[60vh] overflow-y-scroll">
       <h4 className="flex self-center my-4 text-gray-700">
-        Warunki korzystania z serwisu
+        Regulamin korzystania z serwisu{" "}
+        <span className="ml-1 font-bold ">Fixit</span>
       </h4>
+
       <p className="text-sm text-gray-500">
-        Zapoznaj się z poniższymi warunkami zanim zaczniesz używać serwisu{" "}
-        <span className="font-bold ">Fixer</span> .
+        Korzystanie z serwisu jest jednoznaczne z akceptacją postanowień
+        Regulaminu. Serwis <span className="ml-1 font-bold ">Fixit</span>{" "}
+        umożliwia publikowanie zleceń dotyczących naprawy sprzętów różnego
+        rodzaju oraz składanie propozycji na powyższe zlecenia. Każdy użytkownik
+        zobowiązany jest do korzystania z serwisu zgodnie z niniejszym
+        Regulaminem, obowiązującym prawem, ogólnymi zasadami korzystania z sieci
+        Internet, zasadami współżycia społecznego oraz celami utworzenia strony
+        w sposób nie naruszający praw osób trzecich oraz praw właściciela.W
+        przypadku stwierdzenia, że Użytkownik narusza powyższe zasady właściciel
+        serwisu ma prawo usunąć publikowane przez Użytkownika treści, usunąć
+        konto Użytkownika oraz podjąć wszelkie działania prowadzące do
+        naprawienia poniesionej w związku z tym szkody.
       </p>
-      <h5 className="flex self-start mt-2 text-gray-700">Conditions of use</h5>
-      <p className="text-sm text-gray-500">
-        By using this website, you certify that you have read and reviewed this
-        Agreement and that you agree to comply with its terms. If you do not
-        want to be bound by the terms of this Agreement, you are advised to stop
-        using the website accordingly.{" "}
-        <span className="font-bold ">WarsawNanny</span> grants use and access of
-        this website, and its services to those who have accepted its terms.
-      </p>
-      <h5 className="flex self-start mt-2 text-gray-700">Privacy policy</h5>
-      <p className="text-sm text-gray-500">
-        Before you continue using our website, we advise you to read our privacy
-        policy [link to privacy policy] regarding our user data collection. It
-        will help you better understand our practices.
-      </p>
-      <h5 className="flex self-start mt-2 text-gray-700">Age restriction</h5>
-      <p className="text-sm text-gray-500">
-        You must be at least 18 (eighteen) years of age before you can use this
-        website. By using this website, you warrant that you are at least 18
-        years of age and you may legally adhere to this Agreement.{" "}
-        <span className="font-bold ">WarsawNanny</span> assumes no
-        responsibility for liabilities related to age misrepresentation.
-      </p>
+
       <h5 className="flex self-start mt-2 text-gray-700">
-        Intellectual property
+        Ograniczenia wiekowe
       </h5>
       <p className="text-sm text-gray-500">
-        You agree that all materials and services provided on this website are
-        the property of <span className="font-bold ">WarsawNanny</span>, its
-        affiliates, directors, officers, employees, agents, suppliers, or
-        licensors including all copyrights, trade secrets, trademarks, patents,
-        and other intellectual property. You also agree that you will not
-        reproduce or redistribute the{" "}
-        <span className="font-bold ">WarsawNanny</span>’s intellectual property
-        in any way, including electronic, digital, or new trademark
-        registrations. You grant <span className="font-bold ">WarsawNanny</span>{" "}
-        a royalty-free and non-exclusive license to display, use, copy,
-        transmit, and broadcast the content you upload and publish. For issues
-        regarding intellectual property claims, you should contact the company
-        in order to come to an agreement.
+        Użytkownik musi mieć ukończone 18 lat. Korzystając z niniejszego
+        serwisu, oświadczasz, że masz ukończone 18 lat i możesz prawnie
+        przestrzegać postanowień niniejszej Regulaminu. . Serwis
+        <span className="ml-1 font-bold ">Fixit </span> nie ponosi
+        odpowiedzialności za zobowiązania związane z wprowadzaniem w błąd co do
+        wieku.
       </p>
-      <h5 className="flex self-start mt-2 text-gray-700">User accounts</h5>
+      <h5 className="flex self-start mt-2 text-gray-700">Prawa autorskie</h5>
       <p className="text-sm text-gray-500">
-        As a user of this website, you may be asked to register with us and
-        provide private information. You are responsible for ensuring the
-        accuracy of this information, and you are responsible for maintaining
-        the safety and security of your identifying information. You are also
-        responsible for all activities that occur under your account or
-        password. If you think there are any possible issues regarding the
-        security of your account on the website, inform us immediately so we may
-        address them accordingly. We reserve all rights to terminate accounts,
-        edit or remove content at our sole discretion.
+        Żadna część serwisu <span className="ml-1 font-bold ">Fixit </span>{" "}
+        (m.in. teksty, dokumenty, pliki, układy graficzne, grafiki, zdjęcia,
+        filmy) nie może być powielana lub rozpowszechniana w jakiejkolwiek
+        formie lub w jakikolwiek sposób (elektroniczny lub mechaniczny) włącznie
+        z kopiowaniem, drukowaniem, fotokopiowaniem, nagrywaniem na taśmy,
+        dyskietki, płyty CV/DVD lub przy użyciu innych systemów i środków, bez
+        zgody właściciela, chyba że Regulamin stanowi inaczej. Zawartość serwisu
+        internetowego, w tym jego treść, kształt, wizerunek graficzny i
+        konstrukcja chroniona jest polskim i międzynarodowym prawem autorskim.
+        Prawa do wszystkich materiałów zamieszczonych na stronie zastrzeżone są
+        na rzecz właściciela bądź innych podmiotów uprawnionych (np. partnerów).
+        Pobieranie i kopiowanie treści, w szczególności dokumentów i zdjęć
+        znajdujących się na stronie internetowej jest dozwolone wyłącznie po
+        uzyskaniu pisemnej zgody właściciela. Zgoda może być udzielona za
+        pośrednictwem poczty elektronicznej. Naruszenie licencji i praw
+        autorskich przez Użytkownika skutkuje odpowiedzialnością prawną
+        określoną w szczególności w przepisach ustawy o prawie autorskim i
+        prawach pokrewnych, ustawy o zwalczaniu nieuczciwej konkurencji,
+        przepisach kodeku cywilnego lub przepisach prawa prasowego.
       </p>
-      <h5 className="flex self-start mt-2 text-gray-700">Applicable law</h5>
-      <p className="text-sm text-gray-500">
-        By using this website, you agree that the laws of the Poland, without
-        regard to principles of conflict laws, will govern these terms and
-        conditions, or any dispute of any sort that might come between{" "}
-        <span className="font-bold ">WarsawNanny</span> and you, or its business
-        partners and associates.
-      </p>
-      <h5 className="flex self-start mt-2 text-gray-700">Disputes</h5>
-      <p className="text-sm text-gray-500">
-        Any dispute related in any way to your use of this website shall be
-        arbitrated by state or federal court Poland and you consent to exclusive
-        jurisdiction and venue of such courts.
-      </p>
-      <h5 className="flex self-start mt-2 text-gray-700">Indemnification</h5>
-      <p className="text-sm text-gray-500">
-        You agree to indemnify <span className="font-bold ">WarsawNanny</span>{" "}
-        and its affiliates and hold{" "}
-        <span className="font-bold ">WarsawNanny</span> harmless against legal
-        claims and demands that may arise from your use or misuse of our
-        services. We reserve the right to select our own legal counsel.{" "}
-      </p>
+
       <h5 className="flex self-start mt-2 text-gray-700">
-        Limitation on liability
+        Odpowiedzialność za treść
       </h5>
       <p className="text-sm text-gray-500">
         {" "}
-        <span className="font-bold ">WarsawNanny</span> is not liable for any
-        damages that may occur to you as a result of your misuse of our website.{" "}
-        <span className="font-bold ">WarsawNanny</span> reserves the right to
-        edit, modify, and change this Agreement at any time. We shall let our
-        users know of these changes through electronic mail. This Agreement is
-        an understanding between <span className="font-bold ">WarsawNanny</span>{" "}
-        and the user, and this supersedes and replaces all prior agreements
-        regarding the use of this website.
+        Właściciel serwisu
+        <span className="ml-1 font-bold ">Fixit</span> odpowiada jedynie za
+        treści własne zamieszczone w serwisie. Właściciel nie ponosi
+        odpowiedzialności za prawidłowość, aktualność, kompletność materiałów
+        udostępnianych na stronie internetowej jak również za materiały
+        udostępnione przez osoby trzecie. Właściciel serwisu nie ponosi
+        odpowiedzialności za utrudnienia i brak dostępu do serwisu, spowodowane
+        czynnikami niezależnymi od niego. Właściciel zastrzega sobie prawo
+        zmiany treści zawartych w serwisie internetowym, jego uzupełniania,
+        skracania lub całkowitego wycofania. W serwisie internetowym mogą być
+        umieszczone linki do adresów internetowych podmiotów trzecich, na
+        których treść właściciel nie ma żadnego wpływu. Za treści znajdujące się
+        pod linkowanymi adresami odpowiadają wyłącznie ich operatorzy.
+      </p>
+      <h5 className="flex self-start mt-2 text-gray-700">
+        Ochrona prywatności
+      </h5>
+      <p className="text-sm text-gray-500">
+        Wypełniając oraz przesyłając dane za pomocą formularza rejestracyjnego
+        oraz edycyjnego Użytkownik wyraża zgodę na przetwarzanie przez
+        właściciela serwisu <span className="ml-1 font-bold ">Fixit</span>{" "}
+        swoich danych osobowych. Na żądanie właściwego urzędu, sądu lub organów
+        ścigania, właściciel ma prawo ujawnić dane osobowe Użytkownika, jeśli
+        jest to konieczne do celów przeprowadzenia postępowania, zwłaszcza
+        postępowania karnego, zwalczania zagrożeń przez policję, wypełniania
+        zadań ustawowych państwowych urzędów ochrony danych osobowych,
+        państwowych służb wywiadowczych lub kontrwywiadu wojskowego, albo do
+        dochodzenia praw własności intelektualnej. Udostępnienie danych
+        osobowych podmiotom trzecim w sytuacjach innych niż opisane powyżej,
+        jest niedozwolone. Hasła dostępu do strony internetowej nie należy
+        podawać osobom trzecim. Przy opuszczaniu strony Użytkownik powinien się
+        wylogować i zamknąć przeglądarkę
       </p>
       <button
         className="p-2 my-4 rounded-lg bg-gray-800 w-[5rem] text-white text-sm"
