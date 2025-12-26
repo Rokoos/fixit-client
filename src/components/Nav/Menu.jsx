@@ -34,7 +34,7 @@ const Menu = () => {
         <Link
           to="/admin"
           className={`w-4/12  p-5 border-2 cursor-pointer flex flex-col items-center justify-between  ${
-            route === "admin" && user._id === id
+            route === "admin"
               ? "border-navy bg-beige text-navy"
               : "border-beige bg-navy text-beige"
           } transition-all duration-200`}

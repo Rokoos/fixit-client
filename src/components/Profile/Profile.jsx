@@ -6,7 +6,7 @@ import Loader from "../Loader";
 import { getUser } from "../../api";
 import { FaMobileAlt } from "react-icons/fa";
 import { Link, useParams, useNavigate } from "react-router-dom";
-import { phoneFormat, token } from "../../utils";
+import { phoneFormat, getToken } from "../../utils";
 
 import Review from "../Review/Review";
 import Modal from "../Modal";
@@ -31,7 +31,7 @@ const Profile = () => {
 
   const fetchUser = useCallback(() => {
     setIsLoading(true);
-    getUser(token, id)
+    getUser(getToken(), id)
       .then((res) => {
         setPerson(res.data.user);
         setOrders(res.data.orders);

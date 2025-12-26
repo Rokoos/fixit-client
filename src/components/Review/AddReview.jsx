@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { ModalContext } from "../../context/ModalContext";
 import { UserContext } from "../../context/UserContext";
-import { token } from "../../utils";
+import { getToken } from "../../utils";
 import { addReview } from "../../api";
 import { toast } from "react-toastify";
 import StarRatings from "../StarRatings";
@@ -27,7 +27,7 @@ const AddReview = ({
       stars,
       text: reviewText,
     };
-    addReview(token, data)
+    addReview(getToken(), data)
       .then((res) => {
         setIsLoading(false);
         toast.success(res.data.message);

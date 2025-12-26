@@ -20,6 +20,9 @@ export const UserContextProvider = ({ children }) => {
     urgent: "",
     category: "",
   });
+  // console.log("userContext", user);
+  // console.log("userisAuth", isAuth);
+  // console.log("userisAdmin", isAdmin);
 
   const value = {
     user,

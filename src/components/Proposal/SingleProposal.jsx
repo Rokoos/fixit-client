@@ -3,7 +3,7 @@ import { useNavigate, useParams, Link } from "react-router-dom";
 import { UserContext } from "../../context/UserContext";
 import { ModalContext } from "../../context/ModalContext";
 import { getProposal, acceptanceToggle } from "../../api";
-import { token } from "../../utils";
+import { getToken } from "../../utils";
 import { toast } from "react-toastify";
 import momment from "moment";
 import Loader from "../Loader";
@@ -23,7 +23,7 @@ const SingleProposal = () => {
   const { id } = useParams();
   const fetchProposal = useCallback(() => {
     setIsLoading(true);
-    getProposal(token, id)
+    getProposal(getToken(), id)
       .then((res) => {
         setProposal(res.data.proposal);
         setAcceptedProposalId(res.data.acceptedProposalId);
@@ -43,7 +43,7 @@ const SingleProposal = () => {
     setIsLoading(true);
     try {
       let data = { orderId: proposal.orderId };
-      acceptanceToggle(token, id, data).then((res) => {
+      acceptanceToggle(getToken(), id, data).then((res) => {
         setProposal(res.data.proposal);
         toast.success(res.data.message);
         setIsLoading(false);

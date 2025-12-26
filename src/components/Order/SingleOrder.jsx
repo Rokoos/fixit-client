@@ -3,7 +3,7 @@ import { useNavigate, useParams, Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import { getOrder } from "../../api";
 import { UserContext } from "../../context/UserContext";
-import { checkProposalsIds, token } from "../../utils";
+import { checkProposalsIds, getToken } from "../../utils";
 import momment from "moment";
 import { ModalContext } from "../../context/ModalContext";
 import Modal from "../Modal";
@@ -26,7 +26,7 @@ const SingleOrder = () => {
   const fetchOrder = useCallback(() => {
     setIsLoading(true);
 
-    getOrder(token, id)
+    getOrder(getToken(), id)
       .then((res) => {
         setOrder(res.data.order);
         setProposals(res.data.proposals);

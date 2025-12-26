@@ -4,7 +4,7 @@ import { toast } from "react-toastify";
 import { ModalContext } from "../../context/ModalContext";
 import { UserContext } from "../../context/UserContext";
 import { deleteOrder } from "../../api";
-import { token } from "../../utils";
+import { getToken } from "../../utils";
 
 /////////////////////////////////////
 const DeleteOrder = ({ id, images }) => {
@@ -20,7 +20,7 @@ const DeleteOrder = ({ id, images }) => {
         arr.push(el.public_id);
       });
     }
-    deleteOrder(token, id, arr)
+    deleteOrder(getToken(), id, arr)
       .then((res) => {
         setIsLoading(false);
         toast.success(res.data.message);

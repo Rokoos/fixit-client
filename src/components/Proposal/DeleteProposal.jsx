@@ -4,7 +4,7 @@ import { toast } from "react-toastify";
 import { ModalContext } from "../../context/ModalContext";
 import { UserContext } from "../../context/UserContext";
 import { deleteProposal } from "../../api";
-import { token } from "../../utils";
+import { getToken } from "../../utils";
 
 /////////////////////////////////////
 const DeleteProposal = ({ proposal }) => {
@@ -15,7 +15,7 @@ const DeleteProposal = ({ proposal }) => {
   const handleDelete = () => {
     setIsLoading(true);
 
-    deleteProposal(token, proposal._id, { accepted: proposal.accepted })
+    deleteProposal(getToken(), proposal._id, { accepted: proposal.accepted })
       .then((res) => {
         setIsLoading(false);
         toast.success(res.data.message);

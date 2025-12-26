@@ -4,7 +4,7 @@ import { ModalContext } from "../../context/ModalContext";
 import { deleteReview } from "../../api";
 import { toast } from "react-toastify";
 import { IoIosCloseCircle } from "react-icons/io";
-import { token } from "../../utils";
+import { getToken } from "../../utils";
 const DeleteReview = ({
   setReviews,
   review,
@@ -18,7 +18,7 @@ const DeleteReview = ({
   const handleReview = () => {
     setIsLoading(true);
     let data = { _id: review._id, reviewedUserId: person._id };
-    deleteReview(token, data)
+    deleteReview(getToken(), data)
       .then((res) => {
         setReviews(res.data.reviews);
         setAverageStars(res.data.averageStars);

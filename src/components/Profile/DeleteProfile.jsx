@@ -4,7 +4,7 @@ import { toast } from "react-toastify";
 import { ModalContext } from "../../context/ModalContext";
 import { UserContext } from "../../context/UserContext";
 import { deleteUser } from "../../api";
-import { logout, token } from "../../utils";
+import { logout, getToken } from "../../utils";
 /////////////////////////////
 const DeleteProfile = ({ id }) => {
   let navigate = useNavigate();
@@ -12,7 +12,7 @@ const DeleteProfile = ({ id }) => {
   const { setIsLoading, setUser, setIsAuth } = useContext(UserContext);
   const handleDelete = () => {
     setIsLoading(true);
-    deleteUser(token, id)
+    deleteUser(getToken(), id)
       .then((res) => {
         setIsLoading(false);
         toast.success(res.data.message);

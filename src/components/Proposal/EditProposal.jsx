@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { ModalContext } from "../../context/ModalContext";
 import { UserContext } from "../../context/UserContext";
 import { updateProposal, getProposal } from "../../api";
-import { token } from "../../utils";
+import { getToken } from "../../utils";
 import { toast } from "react-toastify";
 import { IoIosCloseCircle } from "react-icons/io";
 
@@ -19,7 +19,7 @@ const EditProposal = ({ proposal, setProposal }) => {
   const handleProposal = () => {
     setIsLoading(true);
     let data = { description, accepted: proposal.accepted };
-    updateProposal(token, id, data)
+    updateProposal(getToken(), id, data)
       .then((res) => {
         setIsLoading(false);
         setProposal(res.data.proposal);

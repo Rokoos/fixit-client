@@ -8,7 +8,7 @@ import {
   gardenCategories,
   computerCategories,
 } from "../../constants";
-import { sortCarMakes, getCarModels, getYear, token } from "../../utils";
+import { sortCarMakes, getCarModels, getYear, getToken } from "../../utils";
 import { addOrder } from "../../api";
 import { UserContext } from "../../context/UserContext";
 import Switcher from "../Switcher";
@@ -80,7 +80,7 @@ const AddOrder = () => {
       urgent,
     };
 
-    addOrder(token, newOrder)
+    addOrder(getToken(), newOrder)
       .then((response) => {
         setIsLoading(false);
         toast.success(response.data.message);

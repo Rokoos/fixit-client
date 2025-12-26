@@ -2,7 +2,7 @@ import { useEffect, useState, useContext } from "react";
 import { deleteReview, updateReview } from "../../api";
 import { ModalContext } from "../../context/ModalContext";
 import { UserContext } from "../../context/UserContext";
-import { charNumber, token } from "../../utils";
+import { charNumber, getToken } from "../../utils";
 import { toast } from "react-toastify";
 import StarRatings from "../StarRatings";
 import { IoIosCloseCircle } from "react-icons/io";
@@ -32,7 +32,7 @@ const EditReview = ({
       stars,
     };
 
-    updateReview(token, review._id, data)
+    updateReview(getToken(), review._id, data)
       .then((res) => {
         setReviews(res.data.reviews);
         setAverageStars(res.data.averageStars);

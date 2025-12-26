@@ -1,5 +1,8 @@
 export const logout = () => localStorage.removeItem("fixerTkn");
-export const token = JSON.parse(localStorage.getItem("fixerTkn"));
+
+export const getToken = () => {
+  return JSON.parse(localStorage.getItem("fixerTkn"));
+};
 export const menuStyles = (route, id, userId) => {
   if (route === "profile" && id === userId) {
     return "border-coral-red bg-white text-coral-red";

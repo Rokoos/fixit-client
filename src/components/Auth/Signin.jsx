@@ -22,8 +22,9 @@ const Signin = () => {
       .then((res) => {
         toast.success(`Witaj ${res.data.user.name}!`);
         localStorage.setItem("fixerTkn", JSON.stringify(res.data.token));
-        setUser({ ...res.data.user, token: res.data.token });
+        setUser(res.data.user);
         setIsAuth(true);
+        // res.data.user.role === "admin" ? setIsAdmin(true) : setIsAdmin(false);
         if (res.data.user.role === "admin") {
           setIsAdmin(true);
           navigate("/admin");

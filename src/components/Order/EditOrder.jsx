@@ -9,7 +9,7 @@ import {
   gardenCategories,
 } from "../../constants";
 import { editOrder, getOrder } from "../../api";
-import { sortCarMakes, getCarModels, getYear, token } from "../../utils";
+import { sortCarMakes, getCarModels, getYear, getToken } from "../../utils";
 import { ModalContext } from "../../context/ModalContext";
 import { toast } from "react-toastify";
 import { UserContext } from "../../context/UserContext";
@@ -45,7 +45,7 @@ const EditOrder = () => {
 
   const fetchOrder = useCallback(() => {
     setIsLoading(true);
-    getOrder(token, id)
+    getOrder(getToken(), id)
       .then((res) => {
         setCategory(res.data.order.category);
         setLocation(res.data.order.location);
@@ -124,7 +124,7 @@ const EditOrder = () => {
       imagesToDelete,
     };
     setIsLoading(true);
-    editOrder(token, id, data)
+    editOrder(getToken(), id, data)
       .then((res) => {
         setIsLoading(false);
         toast.success(res.data.message);

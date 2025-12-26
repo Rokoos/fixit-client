@@ -14,7 +14,7 @@ import { ToastContainer } from "react-toastify";
 import { UserContext } from "./context/UserContext";
 import "react-toastify/dist/ReactToastify.css";
 import Loader from "./components/Loader";
-import { token } from "./utils";
+import { getToken } from "./utils";
 import SingleOrder from "./components/Order/SingleOrder";
 
 const Profile = lazy(() => import("./components/Profile/Profile"));
@@ -39,9 +39,9 @@ const App = () => {
   const { user, setUser, setIsAuth, setIsAdmin } = useContext(UserContext);
   const [isLoading, setIsLoading] = useState(false);
   const checkUser = useCallback(() => {
-    if (token) {
+    if (getToken()) {
       setIsLoading(true);
-      currentUser(token)
+      currentUser(getToken())
         .then((res) => {
           setUser(res.data);
           setIsAuth(true);
@@ -81,7 +81,7 @@ const App = () => {
 
           <Route
             path="/signin"
-            element={user ? <Navigate to="/nannys" /> : <Signin />}
+            element={user ? <Navigate to="/" /> : <Signin />}
           />
           <Route
             path="/signup"

@@ -6,7 +6,7 @@ import Button from "../Button";
 import { toast } from "react-toastify";
 import Switcher from "../Switcher";
 import { updateUser, getUser } from "../../api";
-import { token } from "../../utils";
+import { getToken } from "../../utils";
 import Loader from "../Loader";
 import { PhoneInput } from "react-international-phone";
 import Modal from "../Modal";
@@ -26,8 +26,8 @@ const EditProfile = () => {
   const handleCheckboxChange = () => setShowMobile((previous) => !previous);
 
   const fetchUser = useCallback(() => {
-    if (user && token) {
-      getUser(token, id)
+    if (user && getToken()) {
+      getUser(getToken(), id)
         .then((res) => {
           setName(res.data.user.name);
           setSurname(res.data.user.surname);
@@ -61,7 +61,7 @@ const EditProfile = () => {
       location,
     };
 
-    updateUser(token, user._id, data)
+    updateUser(getToken(), user._id, data)
       .then((res) => {
         setIsLoading(false);
         navigate(`/profile/${user._id}`);

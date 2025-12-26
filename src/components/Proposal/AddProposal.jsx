@@ -2,7 +2,7 @@ import { useContext, useState } from "react";
 import { ModalContext } from "../../context/ModalContext";
 import { UserContext } from "../../context/UserContext";
 import { addProposal } from "../../api";
-import { token } from "../../utils";
+import { getToken } from "../../utils";
 import { toast } from "react-toastify";
 import { IoIosCloseCircle } from "react-icons/io";
 ///////////////////////////////////
@@ -18,7 +18,7 @@ const AddProposal = ({ order, setProposals }) => {
       description,
     };
     setIsLoading(true);
-    addProposal(token, data)
+    addProposal(getToken(), data)
       .then((res) => {
         setIsLoading(false);
         setProposals(res.data.proposals);
