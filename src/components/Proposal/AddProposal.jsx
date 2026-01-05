@@ -7,14 +7,17 @@ import { toast } from "react-toastify";
 import { IoIosCloseCircle } from "react-icons/io";
 ///////////////////////////////////
 const AddProposal = ({ order, setProposals }) => {
+  console.log("order", order);
   const { setShowModal, setModalType } = useContext(ModalContext);
   const { user, setIsLoading } = useContext(UserContext);
   const [description, setDescription] = useState("");
   const handleProposal = () => {
     let data = {
       orderOwnerId: order.addedBy._id,
+      orderOwnerEmail: order.addedBy.email,
       orderId: order._id,
       addedBy: user._id,
+      addedByEmail: user.email,
       description,
     };
     setIsLoading(true);

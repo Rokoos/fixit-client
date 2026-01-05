@@ -18,6 +18,7 @@ const SingleProposal = () => {
   const { user, isLoading, setIsLoading } = useContext(UserContext);
   const { modalType, showModal } = useContext(ModalContext);
   const [proposal, setProposal] = useState(null);
+  console.log("proposal", proposal);
   const [acceptedProposalId, setAcceptedProposalId] = useState("");
 
   const { id } = useParams();
@@ -42,7 +43,7 @@ const SingleProposal = () => {
   const handleAcceptance = () => {
     setIsLoading(true);
     try {
-      let data = { orderId: proposal.orderId };
+      let data = { orderId: proposal.orderId, proposal };
       acceptanceToggle(getToken(), id, data).then((res) => {
         setProposal(res.data.proposal);
         toast.success(res.data.message);
@@ -76,7 +77,7 @@ const SingleProposal = () => {
           <p>{proposal.description}</p>
         </div>
         {user &&
-          user._id === proposal.orderOwnerId &&
+          user._id === proposal.orderOwnerId._id &&
           (proposal._id === acceptedProposalId ||
             acceptedProposalId === "") && (
             <div onClick={handleAcceptance}>
@@ -113,7 +114,7 @@ const SingleProposal = () => {
         )}
 
         {user &&
-          user._id === proposal.orderOwnerId &&
+          user._id === proposal.orderOwnerId._id &&
           (proposal._id === acceptedProposalId ||
             acceptedProposalId === "") && (
             <Modal
