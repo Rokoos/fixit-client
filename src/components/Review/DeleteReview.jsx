@@ -13,11 +13,19 @@ const DeleteReview = ({
   setAverageStars,
 }) => {
   const { setShowModal, setModalType } = useContext(ModalContext);
-  const { setIsLoading } = useContext(UserContext);
+  const { setIsLoading, user } = useContext(UserContext);
 
   const handleReview = () => {
     setIsLoading(true);
-    let data = { _id: review._id, reviewedUserId: person._id };
+    let data = {
+      _id: review._id,
+      reviewedBy: user._id,
+      reviewedByUser: `${user.name} ${user.surname}`,
+      reviewedUserId: person._id,
+      reviewedUserEmail: person.email,
+      reviewedUserName: person.name,
+    };
+
     deleteReview(getToken(), data)
       .then((res) => {
         setReviews(res.data.reviews);

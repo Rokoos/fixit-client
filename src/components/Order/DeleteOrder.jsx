@@ -7,10 +7,10 @@ import { deleteOrder } from "../../api";
 import { getToken } from "../../utils";
 
 /////////////////////////////////////
-const DeleteOrder = ({ id, images }) => {
+const DeleteOrder = ({ id, images, category }) => {
   let navigate = useNavigate();
   const { setShowModal, setModalType } = useContext(ModalContext);
-  const { setIsLoading } = useContext(UserContext);
+  const { setIsLoading, user } = useContext(UserContext);
 
   const handleDelete = () => {
     setIsLoading(true);
@@ -20,7 +20,13 @@ const DeleteOrder = ({ id, images }) => {
         arr.push(el.public_id);
       });
     }
-    deleteOrder(getToken(), id, arr)
+    let data = {
+      arr,
+      recipientName: user.name,
+      recipientEmail: user.email,
+      category,
+    };
+    deleteOrder(getToken(), id, data)
       .then((res) => {
         setIsLoading(false);
         toast.success(res.data.message);

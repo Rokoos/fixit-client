@@ -1,89 +1,41 @@
-import { useState, useContext } from "react";
-// import { UserContext } from "../context/UserContext";
+import { useContext } from "react";
+import { getToken } from "../utils";
+import { UserContext } from "../context/UserContext";
 import { ModalContext } from "../context/ModalContext";
-// import { sendMessage } from "../api";
+import { sendMessage } from "../api";
 import { toast } from "react-toastify";
-// import { token } from "../utils";
 
-const Message = () => {
-  // const { user, isAdmin, setIsLoading } = useContext(UserContext);
+const Message = ({ proposal, text, setText }) => {
+  const { user, setIsLoading } = useContext(UserContext);
   const { setShowModal, setModalType } = useContext(ModalContext);
-  // console.log("modalType", modalType);
-  const [messageText, setMessageText] = useState("");
-  // const handleReceiverEmail = () => {
-  //   if (modalType === "violation") {
-  //     // return "warsawnanny@gmail.com";
-  //     return "m.widomski@tlen.pl";
-  //   } else if (modalType === "message") {
-  //     return person.email;
-  //   }
-  // };
-  const handleMessage = () => {
-    // setIsLoading(true);
-    // if (reviewText.trim().length === 0) {
-    //   toast.warning("You can not send an empty message!");
-    // } else {
-    //   let data = {
-    //     isAdmin,
-    //     type: modalType,
-    //     email: handleReceiverEmail(),
-    //     subject: isAdmin
-    //       ? `Admin of Warsaw Nanny`
-    //       : `${user.name} ${user.surname}`,
-    //     text: reviewText.trim(),
-    //     senderId: user._id,
-    //     violatorId: modalType === "violation" ? person._id : "",
-    //     violatorData:
-    //       modalType === "violation" ? `${person.name} ${person.surname}` : "",
-    //   };
 
-    //   // console.log("message", data);
-    //   sendMessage(authtoken, data)
-    //     .then((res) => {
-    //       toast.success(res.data, {
-    //         position: "bottom-center",
-    //         autoClose: 1000,
-    //       });
-    //       setIsLoading(false);
-    //     })
-    //     .catch((error) => {
-    //       setIsLoading(false);
-    //       console.log(error);
-    //     });
-    //   console.log(data);
-    //   setReviewText("");
-    //   setShowModal(false);
-    //   setModalType("");
-    // }
-    // let data = {
-    //   isAdmin,
-    //   type: modalType,
-    //   email: handleReceiverEmail(),
-    //   subject: isAdmin
-    //     ? `Admin of Warsaw Nanny`
-    //     : `${user.name} ${user.surname}`,
-    //   text: messageText.trim(),
-    //   senderId: user._id,
-    //   violatorId: modalType === "violation" ? person._id : "",
-    //   violatorData:
-    //     modalType === "violation" ? `${person.name} ${person.surname}` : "",
-    // };
-    // sendMessage(authtoken, data)
-    //   .then((res) => {
-    //     toast.success(res.data, {
-    //       autoClose: 2000,
-    //     });
-    //     setIsLoading(false);
-    //   })
-    //   .catch((error) => {
-    //     toast.error(error.response.data.message, { autoClose: 2000 });
-    //     setIsLoading(false);
-    //   });
-    toast.success("Wysłano wiadomość");
-
-    setMessageText("");
-    setShowModal(false);
-    setModalType("");
+  const handleMessage = (e) => {
+    let obj = {
+      text,
+      recipientEmail: proposal.addedBy.email,
+      recipientName: proposal.addedBy.name,
+      senderFullName: `${user.name} ${user.surname}`,
+      senderId: user._id,
+      proposalId: proposal._id,
+      orderId: proposal.orderId._id,
+      category: proposal.orderId.category,
+    };
+    setIsLoading(true);
+    sendMessage(getToken(), obj)
+      .then((res) => {
+        setIsLoading(false);
+        toast.success(res.data.message);
+        setText("");
+        setShowModal(false);
+        setModalType("");
+      })
+      .catch((error) => {
+        toast.error(error.response.data.message);
+        setIsLoading(false);
+        //     setText("");
+        // setShowModal(false);
+        // setModalType("");
+      });
   };
 
   return (
@@ -94,8 +46,8 @@ const Message = () => {
         </h4>
         <textarea
           rows="7"
-          onChange={(e) => setMessageText(e.target.value)}
-          value={messageText}
+          onChange={(e) => setText(e.target.value)}
+          value={text}
           className=" w-full rounded-lg border border-gray-400   p-2 text-gray-800 placeholder-gray-400  text-sm"
           placeholder="Twoja wiadomość..."
           // disabled={reviewText.length == 500}
@@ -103,12 +55,12 @@ const Message = () => {
         <div className="flex flex-col items-center">
           <span
             className={`${
-              messageText.length <= 1000
+              text.length <= 500
                 ? "text-gray-700 text-sm"
                 : "text-red-700 text-sm"
             } pt-2`}
           >
-            {messageText.length} of 1000
+            {text.length} of 500
           </span>
         </div>
         <div className="flex flex-row justify-around items-center  w-full py-2">

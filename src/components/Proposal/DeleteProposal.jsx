@@ -14,8 +14,14 @@ const DeleteProposal = ({ proposal }) => {
 
   const handleDelete = () => {
     setIsLoading(true);
+    let data = {
+      accepted: proposal.accepted,
+      category: proposal.orderId.category,
+      recipientEmail: proposal.orderOwnerId.email,
+      orderId: proposal.orderId._id,
+    };
 
-    deleteProposal(getToken(), proposal._id, { accepted: proposal.accepted })
+    deleteProposal(getToken(), proposal._id, data)
       .then((res) => {
         setIsLoading(false);
         toast.success(res.data.message);

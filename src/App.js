@@ -19,8 +19,8 @@ import SingleOrder from "./components/Order/SingleOrder";
 
 const Profile = lazy(() => import("./components/Profile/Profile"));
 const EditProfile = lazy(() => import("./components/Profile/EditProfile"));
-const SingleProposal = lazy(() =>
-  import("./components/Proposal/SingleProposal")
+const SingleProposal = lazy(
+  () => import("./components/Proposal/SingleProposal"),
 );
 
 const NotFound = lazy(() => import("./components/NotFound"));
@@ -49,7 +49,7 @@ const App = () => {
           setIsLoading(false);
         })
         .catch((err) => {
-          console.log("error");
+          console.log("error", err);
           setIsLoading(false);
         });
     }
@@ -85,9 +85,10 @@ const App = () => {
           />
           <Route
             path="/signup"
-            element={user ? <Navigate to="/nannys" /> : <Signup />}
+            element={user ? <Navigate to="/" /> : <Signup />}
           />
-          <Route path="/*" element={<NotFound />} />
+          {/* <Route path="/*" element={<NotFound />} /> */}
+          <Route path="/*" element={<Navigate to="/" />} />
         </Routes>
       )}
 

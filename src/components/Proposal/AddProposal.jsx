@@ -14,7 +14,8 @@ const AddProposal = ({ order, setProposals }) => {
   const handleProposal = () => {
     let data = {
       orderOwnerId: order.addedBy._id,
-      orderOwnerEmail: order.addedBy.email,
+      recipientEmail: order.addedBy.email,
+      category: order.category,
       orderId: order._id,
       addedBy: user._id,
       addedByEmail: user.email,
@@ -55,12 +56,12 @@ const AddProposal = ({ order, setProposals }) => {
           htmlFor="age"
           className=" block text-sm font-bold  leading-6 text-navy mt-2"
         >
-          Opis propozycji
+          Opis
         </label>
         <div className="mt-2 flex flex-col  w-full">
           <textarea
             value={description}
-            placeholder="Opisz propzycję (termin, koszt itd.)"
+            placeholder="Złóż propzycję (termin, koszt itd.) lub zadaj pytanie o szczegóły."
             className="border text-sm text-gray-700 p-2 h-[20vh] border-navy w-full rounded-lg text-wrap focus:outline-none"
             onChange={(e) => setDescription(e.target.value)}
           ></textarea>

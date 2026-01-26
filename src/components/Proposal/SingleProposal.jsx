@@ -18,8 +18,8 @@ const SingleProposal = () => {
   const { user, isLoading, setIsLoading } = useContext(UserContext);
   const { modalType, showModal } = useContext(ModalContext);
   const [proposal, setProposal] = useState(null);
-  console.log("proposal", proposal);
   const [acceptedProposalId, setAcceptedProposalId] = useState("");
+  const [text, setText] = useState("");
 
   const { id } = useParams();
   const fetchProposal = useCallback(() => {
@@ -43,8 +43,7 @@ const SingleProposal = () => {
   const handleAcceptance = () => {
     setIsLoading(true);
     try {
-      let data = { orderId: proposal.orderId, proposal };
-      acceptanceToggle(getToken(), id, data).then((res) => {
+      acceptanceToggle(getToken(), id, proposal).then((res) => {
         setProposal(res.data.proposal);
         toast.success(res.data.message);
         setIsLoading(false);
@@ -112,27 +111,21 @@ const SingleProposal = () => {
             </Modal>
           </div>
         )}
-
-        {user &&
-          user._id === proposal.orderOwnerId._id &&
+        {/* &&
           (proposal._id === acceptedProposalId ||
-            acceptedProposalId === "") && (
-            <Modal
-              proposal={proposal}
-              title="Wyślij Wiadomość"
-              style=" bg-navy w-full max-w-[15rem] py-4 px-2 rounded-full mt-4 text-beige border border-beige hover:border-transparent hover:bg-beige hover:text-navy duration-150 ease-out "
-              showModal={modalType === "message" && showModal}
-              modalName="message"
-              modalStyle="max-w-[40rem]"
-            >
-              <Message
-              // setShowModal={setShowModal3}
-              // setShowModal={setShowModal}
-              // setModalType={setModalType}
-              // proposal={proposal}
-              />
-            </Modal>
-          )}
+            acceptedProposalId === "") */}
+        {user && user._id === proposal.orderOwnerId._id && (
+          <Modal
+            proposal={proposal}
+            title="Wyślij Wiadomość"
+            style=" bg-navy w-full max-w-[15rem] py-4 px-2 rounded-full mt-4 text-beige border border-beige hover:border-transparent hover:bg-beige hover:text-navy duration-150 ease-out "
+            showModal={modalType === "message" && showModal}
+            modalName="message"
+            modalStyle="max-w-[40rem]"
+          >
+            <Message text={text} setText={setText} proposal={proposal} />
+          </Modal>
+        )}
 
         <div
           className=" bg-navy w-full max-w-[15rem] py-4 px-2 rounded-full my-4 text-beige border border-beige hover:border-transparent hover:bg-beige hover:text-navy duration-150 ease-out text-center cursor-pointer "

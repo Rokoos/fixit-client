@@ -107,6 +107,8 @@ const EditOrder = () => {
   const handleSubmit = () => {
     let data = {
       addedBy: user._id,
+      recipientName: user.name,
+      recipientEmail: user.email,
       location,
       mobile,
       category,
@@ -471,7 +473,7 @@ const EditOrder = () => {
             modalName="orderDelete"
             modalStyle={"max-w-[40rem] mx-2"}
           >
-            <DeleteOrder id={id} images={images} />
+            <DeleteOrder id={id} images={images} category={category} />
           </Modal>
         </div>
       </div>

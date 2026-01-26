@@ -18,7 +18,13 @@ const EditProposal = ({ proposal, setProposal }) => {
 
   const handleProposal = () => {
     setIsLoading(true);
-    let data = { description, accepted: proposal.accepted };
+    let data = {
+      description,
+      accepted: proposal.accepted,
+      recipientEmail: proposal.orderOwnerId.email,
+      orderId: proposal.orderId._id,
+      category: proposal.orderId.category,
+    };
     updateProposal(getToken(), id, data)
       .then((res) => {
         setIsLoading(false);
@@ -53,12 +59,12 @@ const EditProposal = ({ proposal, setProposal }) => {
           htmlFor="age"
           className=" block text-sm font-bold  leading-6 text-navy mt-2"
         >
-          Opis propozycji
+          Opis
         </label>
         <div className="mt-2 flex flex-col  w-full">
           <textarea
             value={description}
-            placeholder="Opisz propzycję (termin, koszt itd.)"
+            placeholder="Złóż propzycję (termin, koszt itd.) lub zadaj pytanie o szczegóły."
             className="border text-sm text-gray-700 p-2 h-[20vh] border-navy w-full rounded-lg text-wrap focus:outline-none"
             onChange={(e) => setDescription(e.target.value)}
           ></textarea>

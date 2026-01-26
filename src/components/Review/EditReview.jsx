@@ -27,7 +27,10 @@ const EditReview = ({
     setIsLoading(true);
     let data = {
       reviewedBy: user._id,
+      reviewedByUser: `${user.name} ${user.surname}`,
       reviewedUserId: person._id,
+      reviewedUserEmail: person.email,
+      reviewedUserName: person.name,
       text: reviewText,
       stars,
     };

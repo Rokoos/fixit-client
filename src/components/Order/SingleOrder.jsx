@@ -17,7 +17,6 @@ const SingleOrder = () => {
   let navigate = useNavigate();
   const [order, setOrder] = useState(null);
   const [proposals, setProposals] = useState([]);
-
   const { user, isLoading, setIsLoading } = useContext(UserContext);
   const { modalType, showModal } = useContext(ModalContext);
 
@@ -259,9 +258,20 @@ const SingleOrder = () => {
         {user &&
           order.addedBy._id !== user._id &&
           !checkProposalsIds(proposals, user._id) && (
+            <div className="mt-10 mb-2 w-[16rem] px-2 md:px-0 md:w-[20rem] ">
+              <p className="text-beige text-xs">
+                *Jeśli masz pytania do zlecenia możesz je również zadać
+                korzystając z poniższego odnośnika.
+              </p>
+            </div>
+          )}
+
+        {user &&
+          order.addedBy._id !== user._id &&
+          !checkProposalsIds(proposals, user._id) && (
             <div className="my-4">
               <Modal
-                title="Złóż propozycję"
+                title="Wyślij propozycję"
                 style="flex justify-center items-center gap-2 px-7 py-4 border-2 font-montserrat sm:text-sm  leading-none bg-beige rounded-full text-navy  min-w-[14rem] border-transparent hover:text-beige hover:bg-navy hover:border-2 hover:border-beige transition duration-300 ease-in-out hover:font-bold  bg-beige"
                 modalStyle="w-[90vw] mx-auto max-w-[30rem] bg-beige rounded-lg"
                 modalName="proposal"
@@ -271,6 +281,7 @@ const SingleOrder = () => {
               </Modal>
             </div>
           )}
+
         <div className="h-[50px]"></div>
       </div>
     );

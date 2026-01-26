@@ -187,16 +187,6 @@ export const acceptanceToggle = async (authtoken, id, data) =>
     }
   );
 
-/////////////////messages///////////////////
-
-export const getMessages = async (chatId) => {
-  return await axios.get(`${process.env.REACT_APP_API}/messages/${chatId}`);
-};
-
-export const sendMessage = async (data) => {
-  return await axios.post(`${process.env.REACT_APP_API}/message`, data);
-};
-
 /////////////////////review///////////////////
 
 export const addReview = async (authtoken, data) => {
@@ -231,6 +221,15 @@ export const deleteReview = async (authtoken, data) => {
     }
   );
 };
+
+////////////////////////message
+
+export const sendMessage = async (authtoken, data) =>
+  await axios.post(`${process.env.REACT_APP_API}/send_message`, data, {
+    headers: {
+      authtoken,
+    },
+  });
 
 //////////////////////PHOTOS
 

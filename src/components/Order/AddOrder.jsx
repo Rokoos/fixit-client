@@ -65,6 +65,8 @@ const AddOrder = () => {
 
     let newOrder = {
       addedBy: user._id,
+      recipientName: user.name,
+      recipientEmail: user.email,
       location,
       category,
       make: carMake,
