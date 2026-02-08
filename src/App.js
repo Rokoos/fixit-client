@@ -23,10 +23,11 @@ const SingleProposal = lazy(
   () => import("./components/Proposal/SingleProposal"),
 );
 
-const NotFound = lazy(() => import("./components/NotFound"));
 const Nav = lazy(() => import("./components/Nav/Nav"));
 const Signin = lazy(() => import("./components/Auth/Signin"));
 const Signup = lazy(() => import("./components/Auth/Signup"));
+const ForgotPassword = lazy(() => import("./components/Auth/ForgotPassword"));
+const ResetPassword = lazy(() => import("./components/Auth/ResetPassword"));
 const Menu = lazy(() => import("./components/Nav/Menu"));
 // const Message = lazy(() => import("./components/Message"));
 const AddOrder = lazy(() => import("./components/Order/AddOrder"));
@@ -88,6 +89,14 @@ const App = () => {
             element={user ? <Navigate to="/" /> : <Signup />}
           />
           {/* <Route path="/*" element={<NotFound />} /> */}
+          <Route
+            path="/forgotPassword"
+            element={user ? <Navigate to="/" /> : <ForgotPassword />}
+          />
+          <Route
+            path="/resetPassword"
+            element={user ? <Navigate to="/" /> : <ResetPassword />}
+          />
           <Route path="/*" element={<Navigate to="/" />} />
         </Routes>
       )}

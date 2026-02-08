@@ -60,7 +60,7 @@ const Menu = () => {
 
       <div
         className="w-4/12  p-5 border-2 cursor-pointer  flex flex-col  items-center justify-between border-beige  bg-navy text-beige "
-        onClick={() => logoutUser()}
+        // onClick={() => logoutUser()}
       >
         <RiLogoutCircleLine className="w-6 h-6" />
         <span className="text-sm">Wyloguj</span>

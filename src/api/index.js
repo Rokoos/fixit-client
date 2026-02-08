@@ -21,7 +21,7 @@ export const currentUser = async (authtoken) => {
       headers: {
         authtoken,
       },
-    }
+    },
   );
 };
 export const updateUser = async (authtoken, id, data) => {
@@ -32,7 +32,7 @@ export const updateUser = async (authtoken, id, data) => {
       headers: {
         authtoken,
       },
-    }
+    },
   );
 };
 export const getUser = async (authtoken, userId) =>
@@ -43,7 +43,7 @@ export const getUser = async (authtoken, userId) =>
       headers: {
         authtoken,
       },
-    }
+    },
   );
 export const deleteUser = async (authtoken, userId) =>
   await axios.post(
@@ -53,7 +53,7 @@ export const deleteUser = async (authtoken, userId) =>
       headers: {
         authtoken,
       },
-    }
+    },
   );
 
 export const getUsers = async (page) =>
@@ -112,7 +112,7 @@ export const getOrder = async (authtoken, id) =>
       headers: {
         authtoken,
       },
-    }
+    },
   );
 
 export const addOrder = async (authtoken, data) =>
@@ -130,7 +130,7 @@ export const editOrder = async (authtoken, orderId, data) =>
       headers: {
         authtoken,
       },
-    }
+    },
   );
 
 export const deleteOrder = async (authtoken, orderId, data) =>
@@ -141,7 +141,7 @@ export const deleteOrder = async (authtoken, orderId, data) =>
       headers: {
         authtoken,
       },
-    }
+    },
   );
 ///////////////////////PROPOSAL///////////////////
 
@@ -153,7 +153,7 @@ export const getProposal = async (authtoken, id) =>
       headers: {
         authtoken,
       },
-    }
+    },
   );
 
 export const addProposal = async (authtoken, data) =>
@@ -184,7 +184,7 @@ export const acceptanceToggle = async (authtoken, id, data) =>
       headers: {
         authtoken,
       },
-    }
+    },
   );
 
 /////////////////////review///////////////////
@@ -204,7 +204,7 @@ export const updateReview = async (authtoken, id, data) => {
       headers: {
         authtoken,
       },
-    }
+    },
   );
 };
 
@@ -218,7 +218,7 @@ export const deleteReview = async (authtoken, data) => {
       headers: {
         authtoken,
       },
-    }
+    },
   );
 };
 
@@ -231,12 +231,11 @@ export const sendMessage = async (authtoken, data) =>
     },
   });
 
-//////////////////////PHOTOS
+//////////////////FORGOT PASSWORD
 
-// export const addPhotos = async (data) =>
-//   await axios.post(`${process.env.REACT_APP_API}/uploadData`, data);
-// export const deletePhoto = async (orderId, _id) =>
-//   await axios.post(`${process.env.REACT_APP_API}/delete_image`, {
-//     _id,
-//     orderId,
-//   });
+export const forgotPassword = async (email) =>
+  await axios.post(`${process.env.REACT_APP_API}/forgot-password`, {
+    email,
+  });
+export const resetPassword = async (data) =>
+  await axios.post(`${process.env.REACT_APP_API}/resetPassword`, data);

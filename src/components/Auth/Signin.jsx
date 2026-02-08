@@ -1,5 +1,5 @@
 import { useState, useContext } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { signin } from "../../api";
 import Button from "../Button";
 import { toast } from "react-toastify";
@@ -79,8 +79,13 @@ const Signin = () => {
           placeholder="Wpisz hasło"
         />
       </div>
-      <div onClick={handleSignin} className="mb-40">
+      <div onClick={handleSignin} className="mb-4">
         <Button label="Zaloguj" style="mt-10" />
+      </div>
+      <div className="mt-4 ">
+        <Link to="/forgotPassword" className="text-sm underline text-beige">
+          Zapomniałem hasło
+        </Link>
       </div>
     </div>
   );

@@ -86,14 +86,8 @@ const Nav = () => {
                   )}
 
                   <div
-                    onClick={() => logoutUser()}
-                    // onClick={() => {
-                    //   logout();
-                    //   setUser(null);
-                    //   setIsAuth(false);
-                    //   setIsAdmin(false);
-                    //   navigate("/");
-                    // }}
+                    // onClick={() => logoutUser()}
+
                     className=" px-3 py-2 ml-2 rounded-md text-md font-bold cursor-pointer text-navy "
                   >
                     Wyloguj
